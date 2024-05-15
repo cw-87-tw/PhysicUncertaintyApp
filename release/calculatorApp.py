@@ -1,6 +1,8 @@
+# Do not run this file, run the exe in ./dist instead
+
 import tkinter as tk
 from tkinter import messagebox, filedialog
-from tool.getData import init, getData, saveResults
+from getData import *
 
 def run_program():
     try:

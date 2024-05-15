@@ -42,19 +42,30 @@ class Data:
             self.uc = uc
 
     def __add__(self, other):
-        return Data(self.value + other.value, sqrt(self.uc ** 2 + other.uc ** 2))
+        if isinstance(other, Data): 
+            return Data(self.value + other.value, sqrt(self.uc ** 2 + other.uc ** 2))
+        else:
+            return Data(self.value + other, self.uc)
 
     def __sub__(self, other):
-        return Data(self.value - other.value, sqrt(self.uc ** 2 + other.uc ** 2))
+        if isinstance(other, Data): 
+            return Data(self.value - other.value, sqrt(self.uc ** 2 + other.uc ** 2))
+        else:
+            return Data(self.value - other, self.uc)
 
     def __mul__(self, other):
-        return Data(self.value * other.value, sqrt((self.uc / self.value) ** 2 + (other.uc / other.value) ** 2) * abs(self.value * other.value))
+        if isinstance(other, Data): 
+            return Data(self.value * other.value, sqrt((self.uc / self.value) ** 2 + (other.uc / other.value) ** 2) * abs(self.value * other.value))
+        else:
+            return Data(self.value * other, self.uc * abs(other))
 
     def __truediv__(self, other):
-        return Data(self.value / other.value, sqrt((self.uc / self.value) ** 2 + (other.uc / other.value) ** 2) * abs(self.value / other.value))
+        if isinstance(other, Data): 
+            return Data(self.value / other.value, sqrt((self.uc / self.value) ** 2 + (other.uc / other.value) ** 2) * abs(self.value / other.value))
+        else:
+            return Data(self.value / other, self.uc * abs(1 / other))
+        
 
-    def sqr(self):
-        return self * self
     def sqrt(self):
         return Data(sqrt(self.value), sqrt(self.uc))
     
