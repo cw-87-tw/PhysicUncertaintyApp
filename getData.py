@@ -1,9 +1,14 @@
 import openpyxl
 from calculate import *
-import os
-from datetime import datetime
+import io
+# from datetime import datetime
 def init(file, multi_, lc_ = 0.1):
-    wb = openpyxl.load_workbook(file)
+    in_mem_file = None
+    with open(file, "rb") as f:
+        in_mem_file = io.BytesIO(f.read())
+
+    wb = openpyxl.load_workbook(in_mem_file)
+    # wb = openpyxl.load_workbook(file)
     global ws
     global multi
     global results
@@ -37,7 +42,7 @@ def getData() -> dict:
 
 def saveResults(result: list, file: str):
     file = file.split('/')
-    time = str(datetime.now())[:-7]
+    # time = str(datetime.now())[:-7]
     path = f"{'/'.join(file[:-1])}/{file[-1]}計算結果.txt".replace("\\", "/")
     with open(path, encoding = "utf-8", mode = "w") as file:
         for i in result:
