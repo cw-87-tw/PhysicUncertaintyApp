@@ -1,5 +1,5 @@
 import openpyxl
-from tool.calculate import *
+from calculate import *
 import os
 from datetime import datetime
 def init(file, multi_, lc_ = 0.1):
