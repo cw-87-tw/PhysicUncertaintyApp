@@ -1,4 +1,4 @@
-# Do not run this file, run the exe in ./dist instead
+# do not run this file, run the calculatorApp.py in ./dist instead
 
 import tkinter as tk
 from tkinter import messagebox, filedialog
@@ -26,7 +26,7 @@ def run_program():
                 clean_formula += i
             else:
                 clean_formula += " "
-            if i == '.': clean_formula += '.'
+            # if i == '.': clean_formula += '.'
         variables = set(i for i in clean_formula.split() if i[0] != '.')
         
         output = []
@@ -56,31 +56,37 @@ def browse_file():
 root = tk.Tk()
 root.title("不確定度計算器")
 
-# Create and pack widgets
-file_label = tk.Label(root, text="File Path:")
-file_label.grid(row=0, column=0, padx=10, pady=5, sticky="e")
-file_entry = tk.Entry(root, width=50)
-file_entry.grid(row=0, column=1, padx=10, pady=5)
-browse_button = tk.Button(root, text="Browse", command=browse_file)
-browse_button.grid(row=0, column=2, padx=5, pady=5)
+# Set the window size to double
+root.geometry("800x300")  # Width: 800, Height: 400
 
-formula_label = tk.Label(root, text="算式:")
-formula_label.grid(row=1, column=0, padx=10, pady=5, sticky="e")
-formula_entry = tk.Entry(root, width=50)
-formula_entry.grid(row=1, column=1, padx=10, pady=5)
+# Define Microsoft JhengHei font
+font_msjh = ("Microsoft JhengHei", 12)  # Font: Microsoft JhengHei, Size: 12
+
+# Create and pack widgets
+file_label = tk.Label(root, text="File Path:", font=font_msjh)  # Set font to Microsoft JhengHei
+file_label.grid(row=0, column=0, padx=20, pady=10, sticky="e")
+file_entry = tk.Entry(root, width=60, font=font_msjh)  # Set font to Microsoft JhengHei
+file_entry.grid(row=0, column=1, padx=20, pady=10)
+browse_button = tk.Button(root, text="Browse", command=browse_file, font=font_msjh)  # Set font to Microsoft JhengHei
+browse_button.grid(row=0, column=2, padx=10, pady=10)
+
+formula_label = tk.Label(root, text="算式:", font=font_msjh)  # Set font to Microsoft JhengHei
+formula_label.grid(row=1, column=0, padx=20, pady=10, sticky="e")
+formula_entry = tk.Entry(root, width=60, font=font_msjh)  # Set font to Microsoft JhengHei
+formula_entry.grid(row=1, column=1, padx=20, pady=10)
 
 multi = tk.BooleanVar()
-multi_check = tk.Checkbutton(root, text="同組實驗多次重複操作", variable=multi)
-multi_check.grid(row=2, column=1, padx=10, pady=5, sticky="w")
+multi_check = tk.Checkbutton(root, text="同組實驗多次重複操作(A 類不確定度)", variable=multi, font=font_msjh)  # Set font to Microsoft JhengHei
+multi_check.grid(row=2, column=1, padx=20, pady=10, sticky="w")
 
-lc_label = tk.Label(root, text="LC:")
-lc_label.grid(row=3, column=0, padx=10, pady=5, sticky="e")
-lc = tk.DoubleVar(value=0.01)
-lc_entry = tk.Entry(root, textvariable=lc)
-lc_entry.grid(row=3, column=1, padx=10, pady=5)
+lc_label = tk.Label(root, text="LC:", font=font_msjh)  # Set font to Microsoft JhengHei
+lc_label.grid(row=3, column=0, padx=20, pady=10, sticky="e")
+lc = tk.DoubleVar(value=0.1)
+lc_entry = tk.Entry(root, textvariable=lc, font=font_msjh)  # Set font to Microsoft JhengHei
+lc_entry.grid(row=3, column=1, padx=20, pady=10)
 
-run_button = tk.Button(root, text="Run", command=run_program)
-run_button.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
+run_button = tk.Button(root, text="Run", command=run_program, font=font_msjh)  # Set font to Microsoft JhengHei
+run_button.grid(row=4, column=0, columnspan=2, padx=20, pady=20)
 
 # Start the event loop
 root.mainloop()
