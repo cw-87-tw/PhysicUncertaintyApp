@@ -16,7 +16,7 @@ def run_program():
             messagebox.showerror("Error", "Please provide a formula.")
             return
         
-        init(file=file, multi_=multi.get(), lc_=lc.get())
+        init(file = file, multi_ = multi.get(), lc_ = lc.get())
         
         V_DATA = getData()
         
@@ -30,6 +30,8 @@ def run_program():
         variables = set(i for i in clean_formula.split() if i[0] != '.')
         
         output = []
+        res = []
+
         for i in range(len(list(V_DATA.values())[0])):
             substituted_formula = formula
             for var in variables:
@@ -37,8 +39,11 @@ def run_program():
             print("Formula:", substituted_formula)
             ans = eval(substituted_formula)
             print(ans)
-            output.append(ans)
+            output.append(f"第 {i + 1} 次結果: {ans}")
+            res.append(ans)
         
+        length = Data(len(res), 0)
+        output.append(f"最後平均: {st.mean([i.value for i in res])} +- ") # 待補
         path = saveResults(output, file)
         print("Success")
         messagebox.showinfo("Success", f"Results is saved at {path}")
