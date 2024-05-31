@@ -29,7 +29,7 @@ def run_program():
             # if i == '.': clean_formula += '.'
         variables = set(i for i in clean_formula.split() if i[0] != '.')
         
-        output = []
+        output = [f"公式: {formula}"]
         res = []
 
         for i in range(len(list(V_DATA.values())[0])):
@@ -43,7 +43,9 @@ def run_program():
             res.append(ans)
         
         length = Data(len(res), 0)
-        output.append(f"最後平均: {st.mean([i.value for i in res])} +- ") # 待補
+        for i in res[1:]: res[0] = res[0] + i
+        res[0] = res[0] / length
+        output.append(f"最後平均: {res[0]}, 計算 A 類不確定度: {multi.get()}, lc: {lc.get()}") # 待補
         path = saveResults(output, file)
         print("Success")
         messagebox.showinfo("Success", f"Results is saved at {path}")
