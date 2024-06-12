@@ -1,5 +1,3 @@
-# do not run this file, run the calculatorApp.py in ./dist instead
-
 import tkinter as tk
 from tkinter import messagebox, filedialog
 from getData import *
