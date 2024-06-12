@@ -15,12 +15,17 @@
 
 ## 使用例子(檔案皆在 example 資料夾中)
 在這裡以物理課常用的焦距計算做示範
-假設已經測量出 物距( $p$ ) 以及 像距( $q$ )
+假設已經測量出 物距( $p$ ) 以及 像距( $q$ )\
 先將數據打在 Excel 表格中，儲存後選取此檔案
-![alt text](example/image.png)
-在公式的部分，透過成像公式 
-![\frac{1}{p} + \frac{1}{q} = \frac{1}{f}](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B1%7D%7Bp%7D%20%2B%20%5Cfrac%7B1%7D%7Bq%7D%20%3D%20%5Cfrac%7B1%7D%7Bf%7D)
+![alt text](./example/image.png)
+在公式的部分，透過成像公式
+
+$\frac{1}{p} + \frac{1}{q} = \frac{1}{f}$
+
 可以移項得到
-![f = \frac{p \cdot q}{p + q}](https://render.githubusercontent.com/render/math?math=f%20%3D%20%5Cfrac%7Bp%20%5Ccdot%20q%7D%7Bp%20%2B%20q%7D)
-因此輸入 `p * q / (p + q)` 並確認最小刻度後，按下計算即可得到答案
+
+$f = \frac{p \cdot q}{p + q}$
+
+因此輸入 $p * q / (p + q)$ 並確認最小刻度後，按下計算即可得到答案
+
 ![alt text](./example/image2.png)
