@@ -18,7 +18,7 @@
 假設已經測量出 物距( $p$ ) 以及 像距( $q$ )\
 先將數據打在 Excel 表格中，儲存後選取此檔案
 
-![alt text](./example/image.png)
+![alt text](.\example\image.png)
 
 在公式的部分，透過成像公式
 
