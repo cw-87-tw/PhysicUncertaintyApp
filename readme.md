@@ -11,7 +11,8 @@
 4. lc 為變數最小刻度，用以計算不確定度
 5. 若是相同數據製作，則要勾選計算 A 類不確定度
 6. 按下計算後，會將計算結果儲存至與 Excel 表格相同資料夾中
-![alt text](.\example\image1.png)
+   
+![alt text](./example/image1.png)
 
 ## 使用例子(檔案皆在 example 資料夾中)
 在這裡以物理課常用的焦距計算做示範
