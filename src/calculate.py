@@ -2,6 +2,7 @@ import statistics as st
 from math import sqrt
 
 def MURound(x: float):
+    return x # waiting to be fixed
     mod = 1e10
     x *= mod
     x = str(int(x))
@@ -32,7 +33,7 @@ class Data:
         if isinstance(x, list):
             # 不確定度
             lc = lc_or_uc
-            self.ua = st.pstdev(x) / sqrt(len(x)) # 標準差
+            self.ua = st.stdev(x) / sqrt(len(x)) # 標準差
             self.ub = lc / (2 * sqrt(3)) 
             self.uc = sqrt(self.ua * self.ua + self.ub * self.ub)
             self.value = st.mean(x)
